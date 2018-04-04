@@ -6,7 +6,7 @@ $a=$_POST["name"];
 $c=$_POST["email"];
 $d=$_POST["username"];
 $e=$_POST["password"];
-$e=SHA1($b);
+$e=SHA1($e);
 $r="SELECT email FROM login WHERE email= '$c' ";
 $result = mysqli_query($con,$r);
 	if(mysqli_num_rows($result) == 0) {

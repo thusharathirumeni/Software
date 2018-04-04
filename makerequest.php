@@ -4,7 +4,6 @@ $userid='';
 if(isset($_SESSION['logid']))
 {
   $userid=$_SESSION['logid'];
-  session_unset($_SESSION['make_req']);
 }
 else {
   $_SESSION['make_req']="abcd";
@@ -20,6 +19,7 @@ if(isset($_POST['requestsubmitt']))
   $description=$_POST["description"];
   $phone=$_POST["phone"];
   mysqli_query($con,"INSERT INTO `request`( `name`, `price`, `cid`, `time`,`os`,`byte`,`description`,`phone`) VALUES ('$name',$budget,$userid,$duration,'$os','$byte','$description','$phone')") or die(mysqli_error($con));
+  unset($_SESSION['make_req']);
 }
 if(isset($_POST['delete'])){
   $item=$_POST["request_id"];
